@@ -18,7 +18,7 @@ The main dependencies include the following Python libraries:
 
 ## Project Management
 
-[enter link to project page on GH](#)
+We will use Github's [Project Tracker Board](https://github.com/orgs/SWR-Citation-Project/projects/1/views/1) to monitor progress.
 
 ## Data
 
