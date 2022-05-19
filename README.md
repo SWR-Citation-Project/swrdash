@@ -6,7 +6,15 @@ Repo for a prototype dashboard that will help Writing and Rhetoric track and ass
 
 ### Development server
 
-In the root folder, `swrdash`, open a terminal and run `python app.py` or `python3 app.py`. The dashboard will run automatically on a localhost port `8050`: http://localhost:8050/ 
+In the root folder, `swrdash`, open a terminal and run `python app.py` or `python3 app.py`. The dashboard will run automatically on a localhost port `8050`: [http://localhost:8050/](http://localhost:8050/)
+
+## Dependencies
+
+The main dependencies include the following Python libraries:
+
+1. `dash`
+2. `pandas`
+3. `plotly`
 
 ## Project Management
 
