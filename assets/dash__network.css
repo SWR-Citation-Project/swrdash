@@ -1,0 +1,65 @@
+/* 
+  GLOBAL
+*/
+
+div.dash-debug-menu,
+div.dash-debug-menu__outer
+div.dash-debug-menu__outer--closed,
+div.dash-debug-menu__content {
+  display: none;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  padding: 1em;
+}
+#header_banner {
+  display: flex;
+  gap: 10px;
+}
+#header_banner h2,
+#header_banner p {
+  text-align: left;
+}
+
+/* Navigation */
+nav#main_nav {
+  background-color: #c11d31 !important;
+}
+a.dropdown-toggle.nav-link {
+  color: white !important;
+}
+
+/* 
+  INDEX
+*/
+
+/* Banner */
+.banner_copy_container {
+  max-width: 600px;
+}
+.index_banner img {
+  width: 310px;
+}
+
+/* 
+  NETWORK PAGE
+*/
+.network-banner img,
+.heatmap-banner img {
+  width: 150px;
+}
+
+/* 
+  HEATMAP PAGE
+*/
+.filter_prompt {
+  font-weight: 800;
+}
+#heatmap-race label {
+  margin-right: 15px;
+}
+#heatmap-race label input {
+  margin-right: 3px;
+}
