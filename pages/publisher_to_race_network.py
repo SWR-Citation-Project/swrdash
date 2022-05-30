@@ -190,7 +190,6 @@ color_legends = []
 color_legends = get_color_popover_legend_children(node_value_color_mapping, edge_value_color_mapping)
 
 # Find categorical features of nodes and edges
-# id,gender,screentime
 cat_node_features = get_categorical_features(
     pd.DataFrame(data['nodes']), 20, ['shape', 'label', 'id'])
 

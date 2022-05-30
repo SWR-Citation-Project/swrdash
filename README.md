@@ -2,11 +2,16 @@
 
 Repo for a prototype dashboard that will help Writing and Rhetoric track and assess citational issues, politics, and exemplars in diversity, equity, and inclusion practices.
 
+## Contributors
+
+- [@lingeringcode](https://github.com/lingeringcode/)
+- @enterlevi's gh
+
 ## Quick Startup
 
 ### Development server
 
-In the root folder, `swrdash`, open a terminal and run `python app.py` or `python3 app.py`. The dashboard will run automatically on a localhost port `8050`: [http://localhost:8050/](http://localhost:8050/)
+In the root folder, `swrdash`, open a terminal and run `python app.py` or `python3 app.py`. A development version of the dashboard will run automatically on a localhost port `8050`: [http://localhost:8050/](http://localhost:8050/).
 
 ## Project Management
 
@@ -32,8 +37,13 @@ Check out the Dash app gallery for inspiration: [https://dash.gallery/Portal/](h
 
 ## Data
 
-enter content 
+[general overview]
 
 ## App
 
-enter content
+[general overview]
+
+### Resources
+
+- [Python Dash](https://dash.plotly.com/introduction): Code library by the folks that produced Plotly, which provides a relatively easy and quick web app architecture for data dashboards.
+- [Charming Data](https://www.youtube.com/c/CharmingData/search?query=python%20dash): Originally, the code herein has been modified from the [Charming Data](https://www.youtube.com/c/CharmingData/search?query=python%20dash) series for initial learning and piloting a quick way to test and deploy a prototype dashboard.

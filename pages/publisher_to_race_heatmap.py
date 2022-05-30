@@ -7,11 +7,6 @@ from dash import Dash, dcc, html, Input, Output, callback
 from .lib.network_data.network_functions import create_row
 import plotly.express as px
 
-import xarray as xr
-# Load xarray from dataset included in the xarray tutorial
-ds = xr.tutorial.open_dataset('air_temperature').air[:20]
-print(ds)
-
 this_dir = os.path.abspath('./data')
 
 this_dir_img, _ = os.path.split(__file__)
