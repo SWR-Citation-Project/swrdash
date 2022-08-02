@@ -37,7 +37,7 @@ Check out the Dash app gallery for inspiration: [https://dash.gallery/Portal/](h
 
 ## Data
 
-[general overview]
+See the [DATA_GUIDE.md](DATA_GUIDE.md) file.
 
 ## App
 
