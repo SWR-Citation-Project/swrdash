@@ -100,7 +100,6 @@ layout = html.Div([
       dcc.RangeSlider(
         id='my-range-slider',
         marks={
-            2011: '2011',
             2012: '2012',
             2013: '2013',
             2014: '2014',
@@ -112,9 +111,9 @@ layout = html.Div([
             # 2016: {'label': '2016', 'style': {'color':'#f50', 'font-weight':'bold'}},
         },
         step=1,                # number of steps between values
-        min=2011,
+        min=2012,
         max=2019,
-        value=[2011,2019],     # default value initially chosen
+        value=[2012,2019],     # default value initially chosen
         dots=True,             # True, False - insert dots, only when step>1
         allowCross=False,      # True,False - Manage handle crossover
         disabled=False,        # True,False - disable handle
