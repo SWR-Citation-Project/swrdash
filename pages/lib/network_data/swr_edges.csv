@@ -1,0 +1,202 @@
+from,to,citing_year,weight
+CCC,Asian American,2013,356
+CCC,Asian American,2014,120
+CCC,Asian American,2015,121
+CCC,Asian American,2016,239
+CCC,Asian American,2017,100
+CCC,Asian American,2018,63
+CCC,Latinx,2013,260
+CCC,Latinx,2014,144
+CCC,Latinx,2015,120
+CCC,Latinx,2016,217
+CCC,Latinx,2017,78
+CCC,Latinx,2018,76
+CCC,White,2013,376
+CCC,White,2014,130
+CCC,White,2015,123
+CCC,White,2016,201
+CCC,White,2017,76
+CCC,White,2018,74
+College English,Asian American,2013,455
+College English,Asian American,2014,433
+College English,Asian American,2015,378
+College English,Asian American,2016,221
+College English,Asian American,2017,533
+College English,Asian American,2018,251
+College English,Asian American,2019,367
+College English,Latinx,2013,512
+College English,Latinx,2014,378
+College English,Latinx,2015,415
+College English,Latinx,2016,230
+College English,Latinx,2017,442
+College English,Latinx,2018,283
+College English,Latinx,2019,408
+College English,White,2013,563
+College English,White,2014,359
+College English,White,2015,390
+College English,White,2016,202
+College English,White,2017,476
+College English,White,2018,319
+College English,White,2019,435
+Community Literacy Journal,Asian American,2013,484
+Community Literacy Journal,Asian American,2014,240
+Community Literacy Journal,Asian American,2015,234
+Community Literacy Journal,Asian American,2016,255
+Community Literacy Journal,Asian American,2017,272
+Community Literacy Journal,Asian American,2018,116
+Community Literacy Journal,Latinx,2013,451
+Community Literacy Journal,Latinx,2014,335
+Community Literacy Journal,Latinx,2015,306
+Community Literacy Journal,Latinx,2016,222
+Community Literacy Journal,Latinx,2017,197
+Community Literacy Journal,Latinx,2018,125
+Community Literacy Journal,White,2013,360
+Community Literacy Journal,White,2014,231
+Community Literacy Journal,White,2015,206
+Community Literacy Journal,White,2016,273
+Community Literacy Journal,White,2017,240
+Community Literacy Journal,White,2018,123
+Composition Studies,Asian American,2013,134
+Composition Studies,Asian American,2014,288
+Composition Studies,Asian American,2015,341
+Composition Studies,Asian American,2016,431
+Composition Studies,Asian American,2017,329
+Composition Studies,Asian American,2018,438
+Composition Studies,Asian American,2019,167
+Composition Studies,Latinx,2013,115
+Composition Studies,Latinx,2014,257
+Composition Studies,Latinx,2015,327
+Composition Studies,Latinx,2016,396
+Composition Studies,Latinx,2017,389
+Composition Studies,Latinx,2018,389
+Composition Studies,Latinx,2019,135
+Composition Studies,White,2013,107
+Composition Studies,White,2014,295
+Composition Studies,White,2015,295
+Composition Studies,White,2016,478
+Composition Studies,White,2017,384
+Composition Studies,White,2018,443
+Composition Studies,White,2019,175
+Enculturation,Asian American,2013,97
+Enculturation,Asian American,2014,385
+Enculturation,Asian American,2015,204
+Enculturation,Asian American,2016,441
+Enculturation,Asian American,2017,186
+Enculturation,Asian American,2018,309
+Enculturation,Latinx,2013,94
+Enculturation,Latinx,2014,383
+Enculturation,Latinx,2015,240
+Enculturation,Latinx,2016,487
+Enculturation,Latinx,2017,190
+Enculturation,Latinx,2018,294
+Enculturation,White,2013,85
+Enculturation,White,2014,316
+Enculturation,White,2015,244
+Enculturation,White,2016,445
+Enculturation,White,2017,164
+Enculturation,White,2018,349
+Journal of Basic Writing,Asian American,2013,142
+Journal of Basic Writing,Asian American,2014,88
+Journal of Basic Writing,Asian American,2015,84
+Journal of Basic Writing,Asian American,2016,103
+Journal of Basic Writing,Asian American,2017,121
+Journal of Basic Writing,Asian American,2018,100
+Journal of Basic Writing,Latinx,2013,121
+Journal of Basic Writing,Latinx,2014,99
+Journal of Basic Writing,Latinx,2015,82
+Journal of Basic Writing,Latinx,2016,94
+Journal of Basic Writing,Latinx,2017,98
+Journal of Basic Writing,Latinx,2018,106
+Journal of Basic Writing,White,2013,132
+Journal of Basic Writing,White,2014,100
+Journal of Basic Writing,White,2015,62
+Journal of Basic Writing,White,2016,93
+Journal of Basic Writing,White,2017,77
+Journal of Basic Writing,White,2018,104
+Peitho,Asian American,2013,46
+Peitho,Asian American,2014,82
+Peitho,Asian American,2015,223
+Peitho,Asian American,2016,141
+Peitho,Asian American,2017,186
+Peitho,Asian American,2018,263
+Peitho,Latinx,2013,69
+Peitho,Latinx,2014,91
+Peitho,Latinx,2015,186
+Peitho,Latinx,2016,173
+Peitho,Latinx,2017,224
+Peitho,Latinx,2018,344
+Peitho,White,2013,65
+Peitho,White,2014,102
+Peitho,White,2015,219
+Peitho,White,2016,146
+Peitho,White,2017,195
+Peitho,White,2018,348
+Rhetoric Review,Asian American,2013,375
+Rhetoric Review,Asian American,2014,299
+Rhetoric Review,Asian American,2015,512
+Rhetoric Review,Asian American,2016,123
+Rhetoric Review,Latinx,2013,321
+Rhetoric Review,Latinx,2014,332
+Rhetoric Review,Latinx,2015,543
+Rhetoric Review,Latinx,2016,112
+Rhetoric Review,White,2013,318
+Rhetoric Review,White,2014,265
+Rhetoric Review,White,2015,718
+Rhetoric Review,White,2016,123
+WAC Journal,Asian American,2013,60
+WAC Journal,Asian American,2014,90
+WAC Journal,Asian American,2015,58
+WAC Journal,Asian American,2016,65
+WAC Journal,Asian American,2017,141
+WAC Journal,Asian American,2018,154
+WAC Journal,Latinx,2013,78
+WAC Journal,Latinx,2014,65
+WAC Journal,Latinx,2015,66
+WAC Journal,Latinx,2016,71
+WAC Journal,Latinx,2017,146
+WAC Journal,Latinx,2018,135
+WAC Journal,White,2013,71
+WAC Journal,White,2014,92
+WAC Journal,White,2015,60
+WAC Journal,White,2016,50
+WAC Journal,White,2017,151
+WAC Journal,White,2018,192
+WPA,Asian American,2012,289
+WPA,Asian American,2013,330
+WPA,Asian American,2014,338
+WPA,Asian American,2015,231
+WPA,Asian American,2016,277
+WPA,Asian American,2017,470
+WPA,Asian American,2018,126
+WPA,Latinx,2012,310
+WPA,Latinx,2013,297
+WPA,Latinx,2014,421
+WPA,Latinx,2015,278
+WPA,Latinx,2016,297
+WPA,Latinx,2017,408
+WPA,Latinx,2018,173
+WPA,White,2012,260
+WPA,White,2013,295
+WPA,White,2014,379
+WPA,White,2015,335
+WPA,White,2016,268
+WPA,White,2017,489
+WPA,White,2018,171
+Writing Center Journal,Asian American,2013,182
+Writing Center Journal,Asian American,2014,142
+Writing Center Journal,Asian American,2015,296
+Writing Center Journal,Asian American,2016,202
+Writing Center Journal,Asian American,2017,157
+Writing Center Journal,Asian American,2018,130
+Writing Center Journal,Latinx,2013,177
+Writing Center Journal,Latinx,2014,169
+Writing Center Journal,Latinx,2015,272
+Writing Center Journal,Latinx,2016,184
+Writing Center Journal,Latinx,2017,175
+Writing Center Journal,Latinx,2018,159
+Writing Center Journal,White,2013,171
+Writing Center Journal,White,2014,184
+Writing Center Journal,White,2015,289
+Writing Center Journal,White,2016,250
+Writing Center Journal,White,2017,189
+Writing Center Journal,White,2018,97

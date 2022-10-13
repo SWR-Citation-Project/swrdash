@@ -1,0 +1,34 @@
+/* 
+  GLOBAL
+*/
+
+div.dash-debug-menu,
+div.dash-debug-menu__outer
+div.dash-debug-menu__outer--closed,
+div.dash-debug-menu__content {
+  display: none;
+}
+
+/* HEADER */
+
+header {
+  display: flex;
+  align-items: center;
+  padding: 1em;
+}
+#header_banner {
+  display: flex;
+  gap: 10px;
+}
+#header_banner h2,
+#header_banner p {
+  text-align: left;
+}
+
+/* Navigation */
+nav#main_nav {
+  background-color: #c11d31 !important;
+}
+a.dropdown-toggle.nav-link {
+  color: white !important;
+}

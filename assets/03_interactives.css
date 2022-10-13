@@ -1,0 +1,41 @@
+/* 
+  NETWORK PAGE
+*/
+.network-banner img,
+.heatmap-banner img {
+  width: 150px;
+}
+
+/* 
+  HEATMAP PAGE
+*/
+.filter_prompt {
+  font-weight: 800;
+}
+#heatmap-race label {
+  margin-right: 15px;
+}
+#heatmap-race label input {
+  margin-right: 3px;
+}
+
+/* 
+  DATA RECORDS
+*/
+
+#records_btn_csv {
+  margin: 1em 0;
+}
+
+/*
+  eda
+*/
+.kws__dropdown_label {
+  width: 200px;
+  margin-left: 0.75em;
+}
+
+.fig_sunburst_race > div.dash-graph,
+.fig_ecdf_gender > div.dash-graph {
+  height: 100vh;
+}
