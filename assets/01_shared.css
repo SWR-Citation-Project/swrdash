@@ -1,6 +1,15 @@
 /* 
   GLOBAL
 */
+body {
+  background-color: #9effee;
+}
+
+/* COLORS */
+.a11y_1_text_red {color: #d30348;}
+.a11y_1_bg_red {background-color: #d30348;}
+.a11y_1_text_seagreen_ {color: #9effee;}
+.a11y_1_bg_seagreen_ {background-color: #9effee;}
 
 div.dash-debug-menu,
 div.dash-debug-menu__outer
@@ -18,7 +27,14 @@ header {
 }
 #header_banner {
   display: flex;
+  max-width: 980px;
   gap: 10px;
+}
+#header_banner img {
+  border-radius: 50%;
+}
+#header_banner img.banner_logo_not_home {
+  width: 200px;
 }
 #header_banner h2,
 #header_banner p {
@@ -27,8 +43,54 @@ header {
 
 /* Navigation */
 nav#main_nav {
-  background-color: #c11d31 !important;
+  background-color: #d30348 !important;
+  color: #9effee !important;
+}
+.navbar-collapse {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+div[role="menu"].dropdown-menu {
+  background-color: #9dffee;
+  border: 1px solid rgb(211 2 72) !important;
+  border-radius: 0.15rem !important;
+  box-shadow: 2px -1px 1px 1px #d30248;
+}
+div[role="menu"].dropdown-menu a {
+  color: #d30348;
+}
+div[role="menu"].dropdown-menu a:hover {
+  background-color: #d30348;
+  color: #9effee !important;
+  box-shadow: 1px 2px 2px 1px #80d1c3;
+}
+.navbar-dark .navbar-brand {
+  color: #9effee !important;
 }
 a.dropdown-toggle.nav-link {
-  color: white !important;
+  color: #9effee !important;
+}
+
+/* MAIN CONTENT */
+#_pages_content {
+  color: #d30348;
+}
+
+/* FIGURES */
+.plot-container {
+  background: rgb(157 255 238) !important;
+  border-bottom: 1px solid #d30248;
+}
+
+/* TABLES */
+th {
+  font-size: 1.15em;
+  font-weight: bold !important;
+  text-align: center !important;
+}
+
+/* DEBUG MENU */
+.dash-debug-menu__outer.dash-debug-menu__outer--closed,
+.dash-debug-menu__outer {
+  display: none;
 }

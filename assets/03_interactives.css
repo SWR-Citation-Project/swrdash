@@ -3,7 +3,54 @@
 */
 .network-banner img,
 .heatmap-banner img {
-  width: 150px;
+  width: 200px;
+}
+div.column.flex-display.row:has(#pub-to-race-network) {
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  margin: 0 0 -15px 0 !important;
+  margin-left: -15px !important;
+  margin-right: 5px !important;
+  padding: 0;
+}
+div.col-9:has(#pub-to-race-network) {
+  background-color: white;
+  margin: 0;
+  padding: 0;
+  box-shadow: -3px 4px 2px 1px #d30348;
+  border: 1px solid #d30348;
+}
+
+/* network form */
+form.card,
+form.card small,
+form.card button {
+  background: rgb(157 255 238) !important;
+  color: #d30248 !important;
+}
+
+form.card {
+  padding: 10px !important;
+}
+form.card button {
+  border:#d30248 solid 1px !important;
+}
+
+/* Sliders */
+.rc-slider-track {
+  position: absolute;
+  left: 0;
+  height: 4px;
+  border-radius: 6px;
+  background-color: #d30248 !important;
+}
+.rc-slider-rail {
+  background-color: #ff76a4 !important;
+}
+.rc-slider-mark-text {
+  color: #d30248 !important;
+  font-weight: bold;
 }
 
 /* 
@@ -28,7 +75,7 @@
 }
 
 /*
-  eda
+  EDA
 */
 .kws__dropdown_label {
   width: 200px;
@@ -38,4 +85,44 @@
 .fig_sunburst_race > div.dash-graph,
 .fig_ecdf_gender > div.dash-graph {
   height: 100vh;
+}
+
+/* GRIDS */
+.grid__charts_parent {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1em;
+}
+@media only screen and (min-width: 640px) {
+  .grid__charts_parent {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media only screen and (min-width: 640px) {
+  .grid__charts_parent {
+    grid-template-columns: repeat(4,1fr);
+  }
+}
+
+/* SELECTION AREAS */
+.selection__flex_parent {
+  max-width: 700px;
+  display: flex;
+  align-items: center;
+  gap: 1.5em;
+  padding: 2em 0;
+}
+.selection__flex_parent > * {
+  margin: 0;
+  padding: 0;
+}
+.selection__prompt p {
+  font-weight: bold;
+}
+span.Select-value-label[aria-selected="true"] {
+  color: #d30248 !important;
+  font-weight: bold;
+}
+span.Select-clear-zone {
+  display: none;
 }

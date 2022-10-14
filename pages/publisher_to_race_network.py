@@ -89,7 +89,7 @@ DEFAULT_NODE_SIZE = 7
 DEFAULT_EDGE_SIZE = 1
 
 # default node and egde color
-DEFAULT_COLOR = '#97C2FC'
+DEFAULT_COLOR = '#d30348'
 
 # Taken from https://stackoverflow.com/questions/470690/how-to-automatically-generate-n-distinct-colors
 KELLY_COLORS_HEX = [
@@ -119,7 +119,7 @@ KELLY_COLORS_HEX = [
 
 DEFAULT_OPTIONS = {
     'id': 'pub-to-race',
-    'height': '600px',
+    'height': '720px',
     'width': '100%',
     'interaction': {'hover': True},
     # 'edges': {'scaling': {'min': 1, 'max': 5}},
@@ -127,10 +127,10 @@ DEFAULT_OPTIONS = {
     'physics': {
         'stabilization': {'iterations': 100},
         'repulsion': {
-            'centralGravity': 0.01,
-            'springLength': 200,
+            'centralGravity': 0.001,
+            'springLength': 600,
           'springConstant': 0.05,
-          'nodeDistance': 1000,
+          'nodeDistance': 2000,
           'damping': 0.09
         },
     }
@@ -207,11 +207,12 @@ num_edge_features = get_numerical_features(pd.DataFrame(data['edges']))
 """
 
 layout = html.Div([
+  # HEADER
   create_row(
     html.Header(
       [
         html.Div(
-          html.Img(src='data:image/png;base64,{}'.format(encoded_image.decode()), width="80px")
+          html.Img(src='data:image/png;base64,{}'.format(encoded_image.decode()), className="banner_logo_not_home")
         ),
         html.Div(
         [
@@ -228,6 +229,8 @@ layout = html.Div([
       className="network_header",
       id="header_banner")
   ),
+
+  # SETTING PANEL
   create_row([
     dbc.Col([
       # setting panel
@@ -242,7 +245,8 @@ layout = html.Div([
               html.H6("Filter"),
               dbc.Button("Hide/Show", id="filter-show-toggle-button",
                           outline=True, color="secondary", size="sm"),  # legend
-          ], {**fetch_flex_row_style(), 'margin-left': 0, 'margin-right': 0, 'justify-content': 'space-between'}),
+            ], {**fetch_flex_row_style(), 'margin-left': 0, 'margin-right': 0, 'justify-content': 'space-between'}
+          ),
           dbc.Collapse([
               html.Hr(className="my-2"),
               filter_node_form,
@@ -313,14 +317,14 @@ layout = html.Div([
       ], className="card", style={'padding': '5px', 'background': '#e5e5e5'}),
       ], width=3, style={'display': 'flex', 'justify-content': 'center', 'align-items': 'center'}),
 
-    # Network Graph Figure
+    # NETWORK GRAPH CANVAS
     dbc.Col(
       visdcc.Network(
           id='pub-to-race-network',
           data=data,
           options=get_options(DEFAULT_OPTIONS, directed)),
-      width=9)]
-  )
+      width=9)
+  ])
 ])
 
 # create callbacks to toggle legend popover
@@ -387,12 +391,13 @@ def setting_pane_callback(search_text, filter_nodes_text, filter_edges_text, col
   # if its the first call
   if not ctx.triggered:
 
-    print("No trigger")
-
     node_value_color_mapping = {}
     edge_value_color_mapping = {}
 
-    return [data, get_color_popover_legend_children(node_value_color_mapping, edge_value_color_mapping)]
+    return [
+      data, 
+      get_color_popover_legend_children(node_value_color_mapping, edge_value_color_mapping)
+    ]
 
   else:
 

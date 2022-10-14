@@ -39,7 +39,7 @@ layout = html.Div([
         html.Div([
           html.H2("[DEMO] SWR Citational Politics Dashboard"),
           html.P(
-            "Currently this prototype is for demonstration purposes only. The original data has been combined with generated racical demographics to provide possible interactions.",
+            "Currently this prototype is for demonstration purposes only. The original data has been combined with generated demographics to provide possible interactions.",
             className="disclaimer"
           ),
           html.P(

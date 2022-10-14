@@ -23,7 +23,7 @@ navbar = dbc.NavbarSimple(
         nav=True,
         label="Data View Menu",
     ),
-    brand="SWR Citation Dashboard",
+    brand="SWR Citational Politics Dashboard",
     dark=True,
     className="mb-2",
     id="main_nav",

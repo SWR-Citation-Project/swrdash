@@ -68,7 +68,7 @@ layout = html.Div([
       html.Header(
       [
           html.Div(
-          html.Img(src='data:image/png;base64,{}'.format(encoded_image.decode()), width="80px")
+          html.Img(src='data:image/png;base64,{}'.format(encoded_image.decode()),className="banner_logo_not_home")
           ),
           html.Div(
           [

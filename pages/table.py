@@ -8,9 +8,9 @@ from .lib.network_data.network_functions import create_row
 
 dash.register_page(
   __name__,
-  name="Explore Module Data Table",
+  name="Tabulated Top 20 Modules",
   order=2,
-  title="Explore Module Data Table"
+  title="Tabulated Top 20 Modules"
 )
 
 data_dir = os.path.abspath('./data')
@@ -22,6 +22,8 @@ encoded_image = base64.b64encode(open(image_filename, 'rb').read())
 # Import Data
 df = pd.read_csv(data_dir+"/per_module.csv")
 
+external_stylesheets = ['assets/style.css']
+
 dropdown_options = [
     'per_module.csv',
     'per_race.csv',
@@ -30,38 +32,70 @@ dropdown_options = [
 ]
 
 layout = html.Div([
-    html.H2("Select Sheet Number"),
-    html.Div([dcc.Dropdown(
-        id="field_dropdown",
-        options=[{
-            'label': i,
-            'value': i
-        } for i in dropdown_options],
-        value='per_module.csv')],
-        style={'width': '25%','display': 'inline-block'}
+    # HEADER #
+    create_row(
+        html.Header(
+        [
+            html.Div(
+            html.Img(src='data:image/png;base64,{}'.format(encoded_image.decode()),className="banner_logo_not_home")
+            ),
+            html.Div(
+            [
+            html.H2("Explore Aggregated Data Among the Top 20 Citation Modules"),
+            html.P(
+                "This page is for demonstration purposes only. Currently using generated race, gender identity, and sexual identity data with original data. Names are removed from the data set.",
+                className="disclaimer"
+            ),
+            html.P(
+                "Explore the total number of cited authors' race across the discipline's journals. Use the slider at the bottom to adjust what years are displayed."
+            )
+            ]),
+        ], 
+        className="heatmap_header",
+        id="header_banner")
     ),
-    dash_table.DataTable(
-        id='datatable-row-ids',
-        columns=[
-            {'name': i, 'id': i, 'deletable': False} for i in df.columns
-            # omit the id column
-            if i != 'id'
-        ],
-        data=df.to_dict('records'),
-        editable=True,
-        filter_action="native",
-        sort_action="native",
-        sort_mode="multi",
-        column_selectable="single",
-        row_selectable="multi",
-        row_deletable=True,
-        selected_columns=[],
-        selected_rows=[],
-        page_action="native",
-        page_current= 0,
-        page_size= 10,
-    ),
-    html.Div(id='datatable-row-ids-container')
+    html.Section([
+        html.H2("Summary Charts from Table"),
+        html.Div(
+            id='datatable-row-ids-container',
+            className="grid__charts_parent",
+        ),
+    ]),
+    html.Section([
+        html.Div([
+            html.P("Select a Different Data Set: "),
+            html.Div([dcc.Dropdown(
+                id="field_dropdown",
+                options=[{
+                    'label': i,
+                    'value': i
+                } for i in dropdown_options],
+                value='per_module.csv')],
+                style={'width': '100%','display': 'inline-block'}
+            )
+        ],className="selection__flex_parent"),
+        dash_table.DataTable(
+            id='datatable-row-ids',
+            columns=[
+                {'name': i, 'id': i, 'deletable': False} for i in df.columns
+                # omit the id column
+                if i != 'id'
+            ],
+            data=df.to_dict('records'),
+            editable=False,
+            filter_action="native",
+            sort_action="native",
+            sort_mode="multi",
+            column_selectable="single",
+            row_selectable="multi",
+            row_deletable=False,
+            selected_columns=[],
+            selected_rows=[],
+            page_action="native",
+            page_current= 0,
+            page_size= 20,
+        )
+    ],className="selection__prompt")
 ])
 
 @callback(
@@ -90,20 +124,13 @@ def update_table_cols(user_selection):
     Input('datatable-row-ids', 'selected_row_ids'),
     Input('datatable-row-ids', 'active_cell'))
 def update_table_graphs(data_dict, row_ids, selected_row_ids, active_cell):
-    # When the table is first rendered, `derived_virtual_data` and
-    # `derived_virtual_selected_rows` will be `None`. This is due to an
-    # idiosyncrasy in Dash (unsupplied properties are always None and Dash
-    # calls the dependent callbacks when the component is first rendered).
-    # So, if `rows` is `None`, then the component was just rendered
-    # and its value will be the same as the component's dataframe.
-    # Instead of setting `None` in here, you could also set
-    # `derived_virtual_data=df.to_rows('dict')` when you initialize
-    # the component.
 
+    ### UPDATE BASED ON SELECTED DATA SET ###
+    # Set data for table and charts
     data = pd.DataFrame(data_dict)
-
+    # Set row ID
     selected_id_set = set(selected_row_ids or [])
-
+    # Set list of columns
     _col_list = list(data.columns)[2:]
     _id = list(data.columns)[1]
 
@@ -116,14 +143,17 @@ def update_table_graphs(data_dict, row_ids, selected_row_ids, active_cell):
 
     active_row_id = active_cell['row_id'] if active_cell else None
 
+    # Sets highlighted colors based on selected cell in row
     colors = ['#FF69B4' if id == active_row_id
             else '#7FDBFF' if id in selected_id_set
             else '#0074D9'
             for id in row_ids]
 
+    # Generate charts
     return [
         dcc.Graph(
             id=column + '--row-ids',
+            className="grid__chart_child",
             figure={
                 'data': [
                     {
