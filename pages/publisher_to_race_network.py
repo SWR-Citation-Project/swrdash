@@ -1,18 +1,19 @@
 import os
 import visdcc
 import base64
-import dash  # pip install dash
-import pandas as pd  # pip install pandas
-import plotly.express as px
-from dash import dcc, html, Input, Output, State, callback
+import dash
+import pandas as pd
+from dash import html, Input, Output, State, callback
 import dash_bootstrap_components as dbc
-import json
-from dash.exceptions import PreventUpdate
 from .lib.network_data.network_functions import get_options, fetch_flex_row_style, create_row, get_select_form_layout, _callback_search_graph, _callback_size_edges, _callback_color_edges, _callback_size_nodes, _callback_color_nodes, _callback_filter_edges, _callback_filter_nodes, get_numerical_features, get_color_popover_legend_children, get_categorical_features
 from .lib.network_data.parse_dataframe import parse_dataframe
 
-dash.register_page(__name__)
-
+dash.register_page(
+  __name__,
+  name="Publisher-Race Network",
+  order=4,
+  title="Publisher-Race Network"
+)
 # ----------------------------
 # Load Data & Prep Data
 # ----------------------------

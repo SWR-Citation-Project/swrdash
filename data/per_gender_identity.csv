@@ -1,0 +1,11 @@
+id,node_gender_identity,node_sum,flow_max,flow_mean,flow_median
+0,bigender,2,3e-05,2.5e-05,2.5e-05
+1,butch,3,2e-05,1.6666666666666667e-05,2e-05
+2,cisman,1532,0.00449,9.10443864229765e-05,2e-05
+3,ciswoman,1456,0.00261,8.074175824175824e-05,2e-05
+4,genderfluid,1,8e-05,8e-05,8e-05
+5,nonbinary,5,0.00025,7.2e-05,2e-05
+6,pangender,5,0.00011,3.6e-05,2e-05
+7,transgender,46,0.00107,7.978260869565218e-05,2e-05
+8,trigender,4,0.00015,7.25e-05,6e-05
+9,xenogender,8,9e-05,3e-05,1e-05
