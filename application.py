@@ -1,7 +1,7 @@
 import dash
 import dash_bootstrap_components as dbc
 
-app = dash.Dash(
+application = dash.Dash(
     __name__,
     title="SWR Dashboard",
     # plugins=[dl.plugins.pages],
@@ -11,7 +11,7 @@ app = dash.Dash(
 )
 
 # Declare server for Heroku deployment. Needed for Procfile.
-server = app.server
+server = application.server
 
 navbar = dbc.NavbarSimple(
     dbc.DropdownMenu(
@@ -29,7 +29,7 @@ navbar = dbc.NavbarSimple(
     id="main_nav",
 )
 
-app.layout = dbc.Container(
+application.layout = dbc.Container(
     [
         navbar,
         dash.page_container,
@@ -38,8 +38,8 @@ app.layout = dbc.Container(
 )
 
 if __name__ == "__main__":
-    app.run_server(debug=True)
-    # app.run_server(
+    application.run_server(debug=True)
+    # application.run_server(
     #     host='0.0.0.0',
     #     port=8080,
     #     debug=False,
