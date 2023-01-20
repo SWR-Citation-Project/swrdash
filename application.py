@@ -1,3 +1,4 @@
+from gevent.pywsgi import WSGIServer
 import dash
 import dash_bootstrap_components as dbc
 
@@ -38,10 +39,8 @@ application.layout = dbc.Container(
 )
 
 if __name__ == "__main__":
-    application.run(debug=True)
-    # application.run_server(debug=True)
-    # application.run_server(
-    #     host='0.0.0.0',
-    #     port=8080,
-    #     debug=False,
-    #     use_reloader=False)
+    # Debug/Development
+    # application.run(debug=True, host="0.0.0.0", port=8080)
+    # Production
+    http_server = WSGIServer(('', 5000), application)
+    http_server.serve_forever()
