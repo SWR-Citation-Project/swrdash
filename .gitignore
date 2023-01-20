@@ -160,8 +160,8 @@ cython_debug/
 *.DS_Store
 old
 
-# Local Netlify folder
-.netlify
+# environment
+.env
 
 # Data
 data/cleaned

@@ -45,6 +45,7 @@ header {
 nav#main_nav {
   background-color: #d30348 !important;
   color: #9effee !important;
+  margin: 0 -15px;
 }
 .navbar-collapse {
   font-weight: bold;

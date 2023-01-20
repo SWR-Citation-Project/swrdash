@@ -51,9 +51,18 @@ def fetch_flex_row_style():
     return {'display': 'flex', 'flex-direction': 'row', 'justify-content': 'center', 'align-items': 'center'}
 
 def create_row(children, style=fetch_flex_row_style()):
-    return dbc.Row(children,
-                   style=style,
-                   className="column flex-display")
+    return dbc.Row(
+                    children,
+                    style=style,
+                    className="column flex-display"
+                  )
+
+def create_network_row(children, style=fetch_flex_row_style()):
+    return dbc.Row(
+                    children,
+                    style=style,
+                    className="column flex-display network-flex-container"
+                  )
 
 def get_select_form_layout(id, options, label, description):
     """Creates a select (dropdown) form with provides details
@@ -138,26 +147,31 @@ def _callback_filter_nodes(data, filter_nodes_text):
   """Filter the nodes based on the Python query syntax
   """
   filtered_data = data.copy()
-  node_df = pd.DataFrame(filtered_data['nodes'])
+
+  # Listify Comma-Sep Strings
+  rm_whitespace_names = filter_nodes_text.strip()
+  listify_names = rm_whitespace_names.split(',')
+
+  # Strip each string for good measure
+  search_node_name_list = []
+  for n in listify_names:
+    cn = n.strip().lower()
+    search_node_name_list.append(cn)
+
+  print(search_node_name_list)
   
   try:
-  
-    node_list = node_df.query(filter_nodes_text)['id'].tolist()
     nodes = []
-  
     for node in filtered_data['nodes']:
-  
-      if node['id'] in node_list:
-  
+      if node['id'].lower() in search_node_name_list:
         nodes.append(node)
   
     filtered_data['nodes'] = nodes
     data = filtered_data
   
   except:
-  
     data = data
-    print("wrong node filter query!!")
+    print("oops wrong node filter query!!")
   
   return data
 

@@ -5,7 +5,7 @@ import dash
 import pandas as pd
 from dash import html, Input, Output, State, callback
 import dash_bootstrap_components as dbc
-from .lib.network_data.network_functions import get_options, fetch_flex_row_style, create_row, get_select_form_layout, _callback_search_graph, _callback_size_edges, _callback_color_edges, _callback_size_nodes, _callback_color_nodes, _callback_filter_edges, _callback_filter_nodes, get_numerical_features, get_color_popover_legend_children, get_categorical_features
+from .lib.network_data.network_functions import get_options, fetch_flex_row_style, create_row, create_network_row, get_select_form_layout, _callback_search_graph, _callback_size_edges, _callback_color_edges, _callback_size_nodes, _callback_color_nodes, _callback_filter_edges, _callback_filter_nodes, get_numerical_features, get_color_popover_legend_children, get_categorical_features
 from .lib.network_data.parse_dataframe import parse_dataframe
 
 dash.register_page(
@@ -231,7 +231,18 @@ layout = html.Div([
   ),
 
   # SETTING PANEL
-  create_row([
+  create_network_row([
+
+    # NETWORK GRAPH CANVAS
+    dbc.Col(
+      visdcc.Network(
+          id='pub-to-race-network',
+          data=data,
+          options=get_options(DEFAULT_OPTIONS, directed)),
+      width=9
+    ),
+    
+    # FILTER FORM
     dbc.Col([
       # setting panel
       dbc.Form([
@@ -282,18 +293,28 @@ layout = html.Div([
                   label='Color edges by',
                   description='Select the categorical edge property to color edges by'
               ),
-          ], id="color-show-toggle", is_open=True),
+          ], id="color-show-toggle", is_open=False),
 
           # ---- size section ----
           create_row([
               html.H6("Size"),  # heading
-              dbc.Button("Hide/Show", id="size-show-toggle-button",
-                          outline=True, color="secondary", size="sm"),  # legend
-              dbc.Button("Legends", id="color-legend-toggle", outline=True, color="secondary", size="sm"), # legend
+              # legend
+              dbc.Button(
+                "Legends", id="color-legend-toggle",     
+                outline=True, color="secondary", size="sm"
+              ),
               # add the legends popup
               dbc.Popover(
-                  children=color_legends,
-                  id="color-legend-popup", is_open=False, target="color-legend-toggle",
+                children=color_legends,
+                id="color-legend-popup", is_open=False, target="color-legend-toggle",
+              ),
+              # Hide/Show
+              dbc.Button(
+                "Hide/Show",
+                id="size-show-toggle-button",
+                outline=True, 
+                color="secondary", 
+                size="sm"
               ),
           ], {**fetch_flex_row_style(), 'margin-left': 0, 'margin-right': 0, 'justify-content': 'space-between'}),
           dbc.Collapse([
@@ -312,19 +333,14 @@ layout = html.Div([
                   label='Size edges by',
                   description='Select the numerical edge property to size edges by'
               ),
-          ], id="size-show-toggle", is_open=True),
+          ], id="size-show-toggle", is_open=False),
 
       ], className="card", style={'padding': '5px', 'background': '#e5e5e5'}),
-      ], width=3, style={'display': 'flex', 'justify-content': 'center', 'align-items': 'center'}),
+      ], width=3, style={'display': 'flex', 'justify-content': 'center', 'align-items': 'center'}
+    ),
 
-    # NETWORK GRAPH CANVAS
-    dbc.Col(
-      visdcc.Network(
-          id='pub-to-race-network',
-          data=data,
-          options=get_options(DEFAULT_OPTIONS, directed)),
-      width=9)
   ])
+
 ])
 
 # create callbacks to toggle legend popover
