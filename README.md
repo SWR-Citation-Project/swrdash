@@ -10,7 +10,11 @@ Repo for a prototype dashboard that will help Writing and Rhetoric track and ass
 
 ### Development server
 
-In the root folder, `swrdash`, open a terminal and run `python app.py` or `python3 app.py`. A development version of the dashboard will run automatically on a localhost port `8050`: [http://localhost:8050/](http://localhost:8050/).
+In the root folder, `swrdash`, open a terminal and run `python application.py` or `python3 application.py`. 
+
+A development version of the dashboard will run automatically on a localhost port `8050`: [http://localhost:8050/](http://localhost:8050/).
+
+Or, `gunicorn application:server`
 
 ### Production
 
