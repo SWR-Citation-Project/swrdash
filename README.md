@@ -18,7 +18,9 @@ Or, `gunicorn application:server`
 
 ### Production
 
-We are currently using Google Cloud services. The workflow includes deploying new changes with the following Google Cloud CLI command:
+We are currently using AWS: [http://swrdash-env.eba-nges3stx.us-east-1.elasticbeanstalk.com/](http://swrdash-env.eba-nges3stx.us-east-1.elasticbeanstalk.com/)
+
+We also used Google Cloud services during the free trial period. The workflow includes deploying new changes with the following Google Cloud CLI command:
 
 ```
 gcloud app deploy 
