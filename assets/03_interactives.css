@@ -1,6 +1,14 @@
-/* 
-  NETWORK PAGE
-*/
+/* SHARED */
+.row {
+  margin: 6rem 0 !important;
+}
+
+/* labels */
+.kws__dropdown_row {
+  margin: 1rem 0 !important;
+}
+
+/* NETWORK PAGE */
 .network-banner img,
 .heatmap-banner img {
   width: 200px;

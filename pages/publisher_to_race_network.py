@@ -11,7 +11,7 @@ from .lib.network_data.parse_dataframe import parse_dataframe
 dash.register_page(
   __name__,
   name="Publisher-Race Network",
-  order=4,
+  order=3,
   title="Publisher-Race Network"
 )
 # ----------------------------

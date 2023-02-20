@@ -8,9 +8,9 @@ import pandas as pd
 
 dash.register_page(
   __name__,
-  name="Explore Top 20 Modules",
+  name="Summary Statistics",
   order=1,
-  title="Explore Top 20 Modules"
+  title="Summary Statistics"
 )
 
 this_dir_img, _ = os.path.split(__file__)
@@ -32,27 +32,38 @@ layout = html.Div([
       html.Div(
       html.Img(src='data:image/png;base64,{}'.format(encoded_image.decode()),className="banner_logo_not_home")
       ),
-      html.Div(
-      [
-      html.H2("Explore the Demographics Across the Top 20 Citation Modules"),
-      html.P(
-          "This page is for demonstration purposes only. Currently using generated race and gender identity data with original data. Names are removed from the data set.",
-          className="disclaimer"
-      ),
-      html.P(
-          "Explore the total number of cited authors' race across the discipline's journals. Use the slider at the bottom to adjust what years are displayed."
-      )
+      html.Div([
+        html.H2("Basic Summary of the Corpus"),
+        html.P(
+            "This page is for demonstration purposes only. Currently using generated race and gender identity data with original data. Names are removed from the data that is integrated with the fake identity data.",
+            className="disclaimer"
+        ),
       ]),
     ], 
     className="heatmap_header",
     id="header_banner")
   ),
-  
+  create_row([
+    html.Section([
+      html.H2("Top Cited Scholars"),
+      html.Figure([
+        html.Img(
+          src="assets/images/swr-line-top25-overall-all-years.png"
+        ),
+        html.Figcaption("Figure 1. Top 25 cited scholars overall across all years."),
+      ],className="")
+    ], className="max_width__vw_70")
+  ]),
   # SELECTION AREA #
   create_row(
-    html.Div([
+    html.Section([
+      html.H2("Scholar Identities Across All Journals"),
+      html.P(
+        "In this section, explore authors' identity across the discipline's journals. Use the slider at the bottom to adjust what years are displayed."
+      ),
       html.Hr(),
       html.P("Choose citation module of interest among the Top 20:"),
+      
       html.Div(html.Div([
         dcc.Dropdown(
           id='module-type',
@@ -60,13 +71,14 @@ layout = html.Div([
           value=1,
           options=[
             {'label': x, 'value': x} for x in df["module_id"].unique()
-          ]
-        ),
-      ],
-      className="two columns kws__dropdown_label")
-    ,className="row"),
-    html.Div(id="output-div", children=[]),
-    ], style={"width":"100%"}),
+          ]),
+      ],className="two columns kws__dropdown_label"), className="row kws__dropdown_row"),
+
+      html.Div(
+        id="output-div",
+        children=[]
+      ),
+    ],className="max_width__vw_80"),
   ),
 
 ])

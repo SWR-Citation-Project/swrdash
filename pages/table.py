@@ -1,6 +1,6 @@
 import os
 import pandas as pd
-import dash             #(version 1.8.0 / 2.6.1)
+import dash #(version 1.8.0 / 2.6.1)
 import base64
 from dash import dash_table, dcc, html, callback
 from dash.dependencies import Input, Output
@@ -9,7 +9,7 @@ from .lib.network_data.network_functions import create_row
 dash.register_page(
   __name__,
   name="Tabulated Top 20 Modules",
-  order=2,
+  order=4,
   title="Tabulated Top 20 Modules"
 )
 

@@ -10,9 +10,9 @@ import base64
 dash.register_page(__name__)
 dash.register_page(
   __name__,
-  name="Publisher-Race Analysis",
-  order=3,
-  title="Publisher-Race Analysis"
+  name="Publisher-to-Race",
+  order=2,
+  title="Publisher-to-Race"
 )
 
 this_dir = os.path.abspath('./data')
