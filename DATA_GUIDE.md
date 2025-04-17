@@ -9,6 +9,7 @@ data
   |_original
   |_summary-stats
 ```
+
 ## Original Folder
 
 [data/original/swr-citation-data-rm-new-lines.csv](data/original/swr-citation-data-rm-new-lines.csv): This is the full data set at the per article level. It is the latest cleaned version. It differs from the `enter_data_swr_citations_cleaned.csv` cleaned full set in that the additional author columns are still intact. For development, use the aforementioned file instead.

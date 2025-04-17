@@ -8,9 +8,22 @@ Repo for a prototype dashboard that will help Writing and Rhetoric track and ass
 
 ## Quick Startup
 
+### Local Python Environment
+
+Assumes Mac and `virtualenv`.
+
+In a Terminal opened to the root folder of this project,
+
+1. Install Python 3.9.8 virtually to avoid dependency conflicts on your local computer by running `virtualenv 3.9.8`.
+2. Run `source 3.9.8/bin/activate`. Now Python 3.9.8 is running virtually in this project.
+3. Install dependencies by:
+    1. Run `pip install gevent==22.10.2 --no-build-isolation`
+    2. Run `pip install gevent==22.10.2 --no-build-isolation`
+    3. Run `pip install -r requirements.txt`.
+
 ### Development server
 
-In the root folder, `swrdash`, open a terminal and run `python application.py` or `python3 application.py`. 
+In the root folder, `swrdash`, open a terminal and run `python application.py`.
 
 A development version of the dashboard will run automatically on a localhost port `8050`: [http://localhost:8050/](http://localhost:8050/).
 

@@ -138,7 +138,7 @@ DEFAULT_OPTIONS = {
 
 # Code
 # ---------
-search_form = dbc.FormGroup(
+search_form = dbc.Row(
     [
         # dbc.Label("Search", html_for="search_graph"),
         dbc.Input(type="search", id="search_graph",
@@ -150,7 +150,7 @@ search_form = dbc.FormGroup(
     ]
 )
 
-filter_node_form = dbc.FormGroup([
+filter_node_form = dbc.Row([
     # dbc.Label("Filter nodes", html_for="filter_nodes"),
     dbc.Textarea(id="filter_nodes",
                  placeholder="Ex. id == 'Black'"),
@@ -168,7 +168,7 @@ filter_node_form = dbc.FormGroup([
     ),
 ])
 
-filter_edge_form = dbc.FormGroup([
+filter_edge_form = dbc.Row([
     dbc.Label("Filter edges", html_for="filter_edges"),
     dbc.Textarea(id="filter_edges",
                  placeholder="Ex. weight > 500"),

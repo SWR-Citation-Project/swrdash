@@ -78,9 +78,9 @@ def get_select_form_layout(id, options, label, description):
     description: str
         long text detail of the setting
     """
-    return dbc.FormGroup([
+    return dbc.Row([
         dbc.InputGroup([
-            dbc.InputGroupAddon(label, addon_type="append"),
+            # dbc.InputGroupAddon(label, addon_type="append"),
             dbc.Select(id=id,
                        options=options
                        ), ]),
@@ -159,165 +159,165 @@ def _callback_filter_nodes(data, filter_nodes_text):
     search_node_name_list.append(cn)
 
   print(search_node_name_list)
-  
+
   try:
     nodes = []
     for node in filtered_data['nodes']:
       if node['id'].lower() in search_node_name_list:
         nodes.append(node)
-  
+
     filtered_data['nodes'] = nodes
     data = filtered_data
-  
+
   except:
     data = data
     print("oops wrong node filter query!!")
-  
+
   return data
 
 
 def _callback_filter_edges(data, filter_edges_text):
   """Filter the edges based on the Python query syntax
   """
-  
+
   filtered_data = data.copy()
   edges_df = pd.DataFrame(filtered_data['edges'])
 
   try:
-  
+
     edges_list = edges_df.query(filter_edges_text)['id'].tolist()
     edges = []
-  
+
     for edge in filtered_data['edges']:
-  
+
       if edge['id'] in edges_list:
-  
+
         edges.append(edge)
-  
+
     filtered_data['edges'] = edges
     data = filtered_data
-  
+
   except:
-  
+
     data = data
     print("wrong edge filter query!!")
-  
+
   return data
 
 
 def _callback_color_nodes(color_nodes_value, data, DEFAULT_COLOR, KELLY_COLORS_HEX, filtered_data):
-  
+
   value_color_mapping = {}
-  
+
   # color option is None, revert back all changes
   if color_nodes_value == 'None':
-    
+
     # revert to default color
     for node in data['nodes']:
-    
+
       node['color'] = DEFAULT_COLOR
-  
+
   else:
-    
+
     print("inside color node", color_nodes_value)
-    
+
     unique_values = pd.DataFrame(data['nodes'])[color_nodes_value].unique()
-    
+
     colors = get_distinct_colors(KELLY_COLORS_HEX, len(unique_values))
-    
+
     value_color_mapping = {x: y for x, y in zip(unique_values, colors)}
-    
+
     for node in data['nodes']:
-    
+
       node['color'] = value_color_mapping[node[color_nodes_value]]
-  
+
   # filter the data currently shown
   filtered_nodes = [x['id'] for x in filtered_data['nodes']]
-  
+
   filtered_data['nodes'] = [
-  
+
     x for x in data['nodes'] if x['id'] in filtered_nodes]
-  
+
   data = filtered_data
-  
+
   return data, value_color_mapping
 
 
 def _callback_size_nodes(size_nodes_value, data, DEFAULT_NODE_SIZE, scaling_vars, filtered_data):
 
   # color option is None, revert back all changes
-  
+
   if size_nodes_value == 'None':
-  
+
     # revert to default color
-  
+
     for node in data['nodes']:
-  
+
       node['size'] = DEFAULT_NODE_SIZE
-  
+
   else:
-  
+
     print("Modifying node size using ", size_nodes_value)
-  
+
     # fetch the scaling value
     minn = scaling_vars['node'][size_nodes_value]['min']
     maxx = scaling_vars['node'][size_nodes_value]['max']
-  
+
     # define the scaling function
     def scale_val(x): return 20*(x-minn)/(maxx-minn)
-  
+
     # set size after scaling
     for node in data['nodes']:
-  
+
       node['size'] = node['size'] + scale_val(node[size_nodes_value])
-  
+
   # filter the data currently shown
   filtered_nodes = [x['id'] for x in filtered_data['nodes']]
-  
+
   filtered_data['nodes'] = [
-  
+
     x for x in data['nodes'] if x['id'] in filtered_nodes]
-  
+
   data = filtered_data
-  
+
   return data
 
 
 def _callback_color_edges(color_edges_value, data, DEFAULT_COLOR, KELLY_COLORS_HEX, filtered_data):
 
   value_color_mapping = {}
-  
+
   # color option is None, revert back all changes
   if color_edges_value == 'None':
-  
+
     # revert to default color
     for edge in data['edges']:
-  
+
       edge['color']['color'] = DEFAULT_COLOR
-  
+
   else:
-  
+
     print("inside color edge", color_edges_value)
-  
+
     unique_values = pd.DataFrame(data['edges'])[color_edges_value].unique()
-  
+
     colors = get_distinct_colors(KELLY_COLORS_HEX, len(unique_values))
-  
+
     value_color_mapping = {x: y for x, y in zip(unique_values, colors)}
-  
+
     for edge in data['edges']:
-  
+
       edge['color']['color'] = value_color_mapping[edge[color_edges_value]]
-  
+
   # filter the data currently shown
   filtered_edges = [x['id'] for x in filtered_data['edges']]
-  
+
   filtered_data['edges'] = [
     x for x in data['edges'] if x['id'] in filtered_edges
   ]
-  
+
   data = filtered_data
-  
+
   return data, value_color_mapping
 
 
@@ -337,10 +337,10 @@ def _callback_size_edges(size_edges_value, data, DEFAULT_EDGE_SIZE, scaling_vars
     # set the size after scaling
     for edge in data['edges']:
       edge['width'] = scale_val(edge[size_edges_value])
-  
+
   # filter the data currently shown
   filtered_edges = [x['id'] for x in filtered_data['edges']]
-  
+
   filtered_data['edges'] = [
       x for x in data['edges'] if x['id'] in filtered_edges]
   data = filtered_data
@@ -355,13 +355,13 @@ def get_color_popover_legend_children(node_value_color_mapping, edge_value_color
 
   # common function
   def create_legends_for_nodes(title, legend):
-    
+
     # add title
     _popover_legend_children = [dbc.PopoverHeader(f"{title} legends")]
-    
+
     # add values if present
     if len(legend) > 0:
-      
+
       for key, value in legend.items():
 
         _popover_legend_children.append(
@@ -375,13 +375,13 @@ def get_color_popover_legend_children(node_value_color_mapping, edge_value_color
     return _popover_legend_children
 
   def create_legends_for_edges(title, legend):
-    
+
     # add title
     _popover_legend_children = [dbc.PopoverHeader(f"{title} legends")]
-    
+
     # add values if present
     if len(legend) > 0:
-      
+
       for key, value in legend.items():
 
         _popover_legend_children.append(

@@ -105,7 +105,7 @@ def create_row(children, style=fetch_flex_row_style()):
                    style=style,
                    className="column flex-display")
 
-search_form = dbc.FormGroup(
+search_form = dbc.Row(
     [
         # dbc.Label("Search", html_for="search_graph"),
         dbc.Input(type="search", id="search_graph", placeholder="Search node in graph..."),
@@ -116,7 +116,7 @@ search_form = dbc.FormGroup(
     ]
 )
 
-filter_node_form = dbc.FormGroup([
+filter_node_form = dbc.Row([
     # dbc.Label("Filter nodes", html_for="filter_nodes"),
     dbc.Textarea(id="filter_nodes", placeholder="Enter filter node query here..."),
     dbc.FormText(
@@ -129,7 +129,7 @@ filter_node_form = dbc.FormGroup([
     ),
 ])
 
-filter_edge_form = dbc.FormGroup([
+filter_edge_form = dbc.Row([
     # dbc.Label("Filter edges", html_for="filter_edges"),
     dbc.Textarea(id="filter_edges", placeholder="Enter filter edge query here..."),
     dbc.FormText(
@@ -156,9 +156,9 @@ def get_select_form_layout(id, options, label, description):
     description: str
         long text detail of the setting
     """
-    return  dbc.FormGroup([
+    return  dbc.Row([
                 dbc.InputGroup([
-                    dbc.InputGroupAddon(label, addon_type="append"),
+                    # dbc.InputGroupAddon(label, addon_type="append"),
                     dbc.Select(id=id,
                         options=options
                     ),]),
@@ -172,7 +172,7 @@ def get_categorical_features(df_, unique_limit=20, blacklist_features=['shape', 
     # identify the rel cols + None
     cat_features = ['None'] + df_.columns[(df_.dtypes == 'object') & (df_.apply(pd.Series.nunique) <= unique_limit)].tolist()
     # remove irrelevant cols
-    try: 
+    try:
         for col in blacklist_features:
             cat_features.remove(col)
     except:
@@ -203,15 +203,15 @@ def get_app_layout(graph_data, color_legends=[], directed=False, vis_opts=None):
     graph_data: dict{nodes, edges}
         network data in format of visdcc
     """
-    
+
     # Step 1-2: find categorical features of nodes and edges
     cat_node_features = get_categorical_features(pd.DataFrame(graph_data['nodes']), 20, ['shape', 'label', 'id'])
     cat_edge_features = get_categorical_features(pd.DataFrame(graph_data['edges']).drop(columns=['color']), 20, ['color', 'from', 'to', 'id'])
-    
+
     # Step 3-4: Get numerical features of nodes and edges
     num_node_features = get_numerical_features(pd.DataFrame(graph_data['nodes']))
     num_edge_features = get_numerical_features(pd.DataFrame(graph_data['edges']))
-    
+
     # Step 5: create and return the layout
     # resolve path
     this_dir, _ = os.path.split(__file__)
@@ -239,7 +239,7 @@ def get_app_layout(graph_data, color_legends=[], directed=False, vis_opts=None):
                             filter_node_form,
                             filter_edge_form,
                         ], id="filter-show-toggle", is_open=False),
-                        
+
                         # ---- color section ----
                         create_row([
                             html.H6("Color"), # heading

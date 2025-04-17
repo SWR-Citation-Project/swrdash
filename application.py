@@ -40,8 +40,8 @@ application.layout = dbc.Container(
 
 if __name__ == "__main__":
     # Debug/Development
-    # application.run(debug=True, host="0.0.0.0", port=8080)
+    application.run(debug=True, host="0.0.0.0", port=8080)
     
     # Production
-    http_server = WSGIServer(('', 5000), application)
-    http_server.serve_forever()
+    # http_server = WSGIServer(('', 5050), application)
+    # http_server.serve_forever()
