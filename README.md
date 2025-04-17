@@ -3,6 +3,7 @@
 Repo for a prototype dashboard that will help Writing and Rhetoric track and assess citational issues, politics, and exemplars in diversity, equity, and inclusion practices.
 
 - Live Demo: [https://lingeringcode.pythonanywhere.com/](https://lingeringcode.pythonanywhere.com/)
+- DOI: <a href="https://doi.org/10.5281/zenodo.15237261"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.15237261.svg" alt="DOI"></a>
 
 ## Contributors
 
