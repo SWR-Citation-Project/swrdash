@@ -4,6 +4,7 @@ Repo for a prototype dashboard that will help Writing and Rhetoric track and ass
 
 - Live Demo: [https://lingeringcode.pythonanywhere.com/](https://lingeringcode.pythonanywhere.com/)
 - DOI: <a href="https://doi.org/10.5281/zenodo.15237261"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.15237261.svg" alt="DOI"></a>
+- APA Citation: Lindgren, C. A. (2025). SWR-Citation-Project/swrdash: Initial release (0.1.0). Zenodo. https://doi.org/10.5281/zenodo.15237261
 
 ## Contributors
 
