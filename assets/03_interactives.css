@@ -45,6 +45,12 @@ form.card button {
   border:#d30248 solid 1px !important;
 }
 
+/* Customize spacing in form */
+.network-flex-container .row {
+  padding: 0;
+  margin: 0 !important;
+}
+
 /* Sliders */
 .rc-slider-track {
   position: absolute;
