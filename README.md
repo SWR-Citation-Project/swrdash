@@ -21,9 +21,8 @@ In a Terminal opened to the root folder of this project,
 1. Install Python 3.9.8 virtually to avoid dependency conflicts on your local computer by running `virtualenv 3.9.8`.
 2. Run `source 3.9.8/bin/activate`. Now Python 3.9.8 is running virtually in this project.
 3. Install dependencies by:
-    1. Run `pip install gevent==22.10.2 --no-build-isolation`
+    1. Run `pip install -r requirements.txt`
     2. Run `pip install gevent==22.10.2 --no-build-isolation`
-    3. Run `pip install -r requirements.txt`.
 
 ### Development server
 
@@ -35,21 +34,17 @@ Or, `gunicorn application:server`
 
 ### Production
 
-We are currently using AWS: [http://swrdash-env.eba-nges3stx.us-east-1.elasticbeanstalk.com/](http://swrdash-env.eba-nges3stx.us-east-1.elasticbeanstalk.com/)
+We previously used the following hosting services before needing to pay:
 
-We also used Google Cloud services during the free trial period. The workflow includes deploying new changes with the following Google Cloud CLI command:
+- AWS before hitting costs: [http://swrdash-env.eba-nges3stx.us-east-1.elasticbeanstalk.com/](http://swrdash-env.eba-nges3stx.us-east-1.elasticbeanstalk.com/)
+- Google Cloud services during the free trial period. The workflow includes deploying new changes with the following Google Cloud CLI command: `gcloud app deploy`
+    - See Google's documentation about how to setup the Cloud CLI: (https://cloud.google.com/sdk/gcloud/)[https://cloud.google.com/sdk/gcloud/]. Here is a helpful article about how to use prepare your Dash project for deployment with Google Cloud's CLI: (https://datasciencecampus.github.io/deploy-dash-with-gcp/)[https://datasciencecampus.github.io/deploy-dash-with-gcp/].
+    - To review the logs, use: `gcloud app logs tail -s default`
 
-```
-gcloud app deploy 
-```
+#### Deploy to pythonanywhere.com
 
-See Google's documentation about how to setup the Cloud CLI: (https://cloud.google.com/sdk/gcloud/)[https://cloud.google.com/sdk/gcloud/]. Here is a helpful article about how to use prepare your Dash project for deployment with Google Cloud's CLI: (https://datasciencecampus.github.io/deploy-dash-with-gcp/)[https://datasciencecampus.github.io/deploy-dash-with-gcp/].
-
-To review the logs, use:
-
-```
-gcloud app logs tail -s default
-```
+1. Create a free/basic account at pythonanywhere.com.
+2. Create a new "Web App" in your dashboard.
 
 ## Project Management
 
